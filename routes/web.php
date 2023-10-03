@@ -15,10 +15,18 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
     return view('welcome');
+})->name('inicio');
+
+Route::get('home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+Route::get('login', [App\Http\Controllers\LoginController::class,'index'])->name('login');
+Route::post('login', [App\Http\Controllers\LoginController::class,'store']);
+
+Route::post('logout',[App\Http\Controllers\LogoutController::class,'logout'])->name('logout');
+
+Route::middleware(['auth'])->group(function () {
+
+    Route::get('/add/travel',[TravelController::class,'indexAddTravels'])->name('travels.index');
+    Route::post('/addtravel',[TravelController::class,'travelCheck'])->name('travel.check');
+    Route::get('/result/travels',[TravelController::class,'indexTravels'])->name('travelsAdd.index');
 });
-
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
-Route::get('/login', [App\Http\Controllers\LoginController::class,'index'])->name('login');
-Route::post('/login', [App\Http\Controllers\LoginController::class,'store']);
-Route::post('/logout',[App\Http\Controllers\LogoutController::class,'index'])->name('logout');
-
