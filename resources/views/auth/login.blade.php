@@ -23,7 +23,7 @@
 					</div>
 				</div>
 				<div class="d-flex justify-content-center form_container">
-					<form action= "{{route('login')}}"method="post">
+					<form action= "{{route('login')}}" method="POST">
                         @csrf
                         @if (session('message'))
 

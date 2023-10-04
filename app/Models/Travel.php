@@ -9,8 +9,8 @@ class Travel extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['origen',
-    'destino','cantidad_de_asientos',
-    'tarifa_base'
+    protected $fillable = ['origin',
+    'destination','seat_quantity',
+    'base_rate'
     ];
 }

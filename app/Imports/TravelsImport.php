@@ -2,11 +2,12 @@
 
 namespace App\Imports;
 
-use App\Models\viajes;
-use Illuminate\Support\Colecction;
-use Maatwebsite\Excel\Concerns\ToModel;
+use App\Models\Travel;
+use Illuminate\Support\Collection;
+use Maatwebsite\Excel\Concerns\ToCollection;
+use Maatwebsite\Excel\Concerns\WithHeadingRow;
 
-class TravelsImport implements ToModel
+class TravelsImport implements ToCollection, WithHeadingRow
 {
 
     protected $validRows = [];
@@ -24,17 +25,11 @@ class TravelsImport implements ToModel
                 $this->duplicatedRows[] = $row;
             }else{
                 //Limpiar el campo de tarifa base
-
-
-
-
                 if(isset($row['origen']) && isset($row['destino']) && isset($row['cantidad_de_asientos']) && isset($row['tarifa_base']) && is_numeric($row['cantidad_de_asientos']) && is_numeric($row['tarifa_base'])){
 
                     $this->validRows[] = $row;
 
-                    $this->existingOriginsDestinations[] = $origin . '_' . $destination;
-
-
+                    $this->existingOriginsDestinations[] = $origin . '-' . $destination;
                 }else{
 
                     $this->invalidRows[] = $row;
@@ -46,12 +41,11 @@ class TravelsImport implements ToModel
 
     private function hasDuplicateOriginDestination($origin,$destination){
 
-        $key = $origin . '_' . $destination;
+        $key = $origin . '-' . $destination;
 
         return in_array($key,$this->existingOriginsDestinations);
 
     }
-
 
     public function getValidRows(){
         return $this->validRows;
@@ -65,17 +59,4 @@ class TravelsImport implements ToModel
         return $this->duplicatedRows;
     }
 
-
-
-    /**
-    * @param array $row
-    *
-    * @return \Illuminate\Database\Eloquent\Model|null
-    */
-    public function model(array $row)
-    {
-        return new viajes([
-            //
-        ]);
-    }
 }

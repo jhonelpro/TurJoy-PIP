@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Travel;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Imports\TravelsImport;
@@ -10,10 +11,6 @@ use Maatwebsite\Excel\Facades\Excel;
 
 class TravelController extends Controller
 {
-
-    public function index(){
-        return view('admin_travel.index');
-    }
 
     public function indexAddTravels(){
 
@@ -27,7 +24,7 @@ class TravelController extends Controller
             session(['duplicatedRows'=> []]);
         }
 
-        return view('admin_travel.index',[
+        return view('admin\travel\index',[
             'validRows'=> session('validRows'),
             'invalidRows'=> session('invalidRows'),
             'duplicatedRows'=> session('duplicatedRows')
@@ -36,7 +33,7 @@ class TravelController extends Controller
 
     public function indexTravels(){
 
-        return view('admin_travel.index',[
+        return view('admin\travel\index',[
             'validRows'=> session('validRows'),
             'invalidRows'=> session('invalidRows'),
             'duplicatedRows'=> session('duplicatedRows')
@@ -57,7 +54,7 @@ class TravelController extends Controller
 
             $validRows = $import->getValidRows();
             $invalidRows = $import->getInvalidRows();
-            $duplicateRows = $import->getDuplicatedRows();
+            $duplicatedRows = $import->getDuplicatedRows();
 
             foreach($validRows as $row){
                 $origin = $row['origen'];
@@ -79,7 +76,6 @@ class TravelController extends Controller
                         'base_rate' => $row['tarifa_base']
                     ]);
                 }
-
 
             }
 

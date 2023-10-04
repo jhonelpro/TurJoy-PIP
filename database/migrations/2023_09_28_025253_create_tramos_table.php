@@ -15,8 +15,8 @@ return new class extends Migration
             $table->id();
             $table->string('ciudadOrigen');
             $table->string('ciudadDestino');
-            $table->integer('cantidadAsientos');
-            $table->integer('tarifa');
+            $table->integer('cantidad_de_Asientos');
+            $table->integer('tarifa_base');
             $table->timestamps();
         });
     }
