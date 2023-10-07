@@ -12,7 +12,7 @@
     <nav class="bg-teal-600 border-gray-200 dark:bg-gray-900">
         <div class="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
         <a class="flex items-center">
-            <img src="img/TURJOY.png" class="h-8 mr-3" alt="Turjoy Logo" />
+            <img src="img/TURJOY.png" class="h-8 mr-3" alt="Turjoy Logo"/>
             <span class="self-center text-2xl font-semibold whitespace-nowrap dark:text-white"></span>
         </a>
         <div class="hidden w-full md:block md:w-auto" id="navbar-default">
@@ -21,7 +21,12 @@
                 <a href="{{route('travels.index')}}" class="text-white">Cargar rutas</a>
             </li>
             <li>
-                <a method='POST' href="{{route('logout')}}" class="text-white">Salir</a>
+                <form method="POST" action="{{route('logout')}}" class="text-white">
+                    @csrf
+                    <button type="submit" class="p-2 font-bold uppercase hover:bg-slate-300 hover:rounded-lg">
+                        Cerrar Sesión
+                    </button>
+                </form>
             </li>
             </ul>
         </div>

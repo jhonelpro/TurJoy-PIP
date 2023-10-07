@@ -24,7 +24,15 @@ class TravelsImport implements ToCollection, WithHeadingRow
             if($this->hasDuplicateOriginDestination($origin,$destination)){
                 $this->duplicatedRows[] = $row;
             }else{
-                //Limpiar el campo de tarifa base
+
+
+                if(strpos($row['tarifa_base'],'.')){
+                    str_replace('.','',$row['tarifa_base']);
+                }else if(strpos($row['tarifa_base'],',')){
+                    str_replace(',','',$row['tarifa_base']);
+                }
+
+
                 if(isset($row['origen']) && isset($row['destino']) && isset($row['cantidad_de_asientos']) && isset($row['tarifa_base']) && is_numeric($row['cantidad_de_asientos']) && is_numeric($row['tarifa_base'])){
 
                     $this->validRows[] = $row;
