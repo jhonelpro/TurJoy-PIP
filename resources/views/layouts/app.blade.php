@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     @vite(['resources/css/app.css','resources/js/app.js'])
-    <title>Turjoy</title>
+    <title>Turjoy | Línea de buses</title>
     <style>
         body { background-color: #EAEAEA;}
     </style>
@@ -23,8 +23,7 @@
               <div class="hidden sm:ml-6 sm:block">
                 <div class="flex space-x-4">
                   <a href="{{ url('/') }}" class="bg-gray-900 text-white rounded-md px-3 py-2 text-sm font-medium" aria-current="page">Inicio</a>
-                  <a href="#" class="text-white hover:bg-gray-700 hover:text-white rounded-md px-3 py-2 text-sm font-medium">Reservar</a>
-                  <a href="#" class="text-white hover:bg-gray-700 hover:text-white rounded-md px-3 py-2 text-sm font-medium">Próximamente</a>
+                  <a href="#" class="text-white hover:bg-gray-700 hover:text-white rounded-md px-3 py-2 text-sm font-medium">Proximamente</a>
                   <a href="#" class="text-white hover:bg-gray-700 hover:text-white rounded-md px-3 py-2 text-sm font-medium">Próximamente</a>
                   @guest
                     @if (Route::has('login'))
@@ -44,12 +43,11 @@
                         v-pre>
                         {{ Auth::user()->name }}
                         </a>
-
+                        <a {{ route('home') }}href="" class="text-white hover:bg-gray-700 hover:text-white rounded-md px-3 py-2 text-sm font-medium">Cargar Rutas</a>
                         <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-                            <a class="dropdown-item" href="{{ route('logout') }}"
+                            <a class="dropdown-item text-white hover:bg-gray-700 hover:text-white rounded-md px-3 py-2 text-sm font-medium hidden sm:ml-6 sm:block" href="{{ route('logout') }}"
                             onclick="event.preventDefault();
-                                            document.getElementById('logout-form').submit();">
-                                {{ __('Salir') }}
+                                            document.getElementById('logout-form').submit();"> Salir
                             </a>
                             <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
                                 @csrf
