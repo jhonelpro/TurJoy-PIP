@@ -8,8 +8,8 @@ function makeMessages(){
         'contrasena.required' => 'debe ingresar su contraseña para iniciar sesión',
         'document.required' => 'el campo archivo es requerido.',
         'document.mimes' => 'el archivo seleccionado no es Excel con extensión .xlsx.',
-        'document.max' => 'el tamaño máximo del archivo a cargar no puede superar los 5 megabytes'
-        //'document.' Validacion de campos distintos
+        'document.max' => 'el tamaño máximo del archivo a cargar no puede superar los 5 megabytes',
+        'document.filled' => 'hola'
 
     ];
 
