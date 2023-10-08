@@ -1,5 +1,6 @@
-
-<<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+@extends('layouts.app')
+<link href="https://cdnjs.cloudflare.com/ajax/libs/flowbite/1.8.1/flowbite.min.css"  rel="stylesheet" />
+<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
 <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
 <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <link rel="stylesheet" type="text/css" href="assets/styleslogin.css">
@@ -25,9 +26,6 @@
 				<div class="d-flex justify-content-center form_container">
 					<form action= "{{route('login')}}" method="POST">
                         @csrf
-                        @if (session('message'))
-
-                        @endif
 						<div class="input-group mb-3">
 							<div class="input-group-append">
 								<span class="input-group-text"><i class="fas fa-user"></i></span>
@@ -45,6 +43,14 @@
 				   </div>
 					</form>
 				</div>
+                @if(session('message'))
+                <div class="alert alert-danger" style="background-color: #ff8a80; color:white">
+                    <p>Corrige los siguientes errores:</p>
+                    <ul>
+                        <li>{{session('message')}}</li>
+                    </ul>
+                </div>
+                @endif
                 @if (count($errors) > 0)
                 <div class="alert alert-danger" style="background-color: #ff8a80; color:white">
                     <p>Corrige los siguientes errores:</p>
@@ -52,11 +58,13 @@
                         @foreach ($errors->all() as $message)
                             <li>{{ $message }}</li>
                         @endforeach
+
                     </ul>
                 </div>
             @endif
 			</div>
 		</div>
 	</div>
+    <script src="../path/to/flowbite/dist/flowbite.min.js"></script>
 </body>
 </html>

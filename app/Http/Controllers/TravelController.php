@@ -24,7 +24,7 @@ class TravelController extends Controller
             session(['duplicatedRows'=> []]);
         }
 
-        return view('admin\travel\index',[
+        return view('index',[
             'validRows'=> session('validRows'),
             'invalidRows'=> session('invalidRows'),
             'duplicatedRows'=> session('duplicatedRows')
@@ -33,7 +33,7 @@ class TravelController extends Controller
 
     public function indexTravels(){
 
-        return view('admin\travel\index',[
+        return view('index',[
             'validRows'=> session('validRows'),
             'invalidRows'=> session('invalidRows'),
             'duplicatedRows'=> session('duplicatedRows')

@@ -5,7 +5,6 @@ use App\Http\Controllers\UsuarioController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\LogoutController;
 use Illuminate\Support\Facades\Route;
-
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -21,13 +20,11 @@ Route::get('/', function () {
     return view('welcome');
 })->name('welcome');
 
-Route::get('login', function () {
-    return view('auth.login');
-})->name('login');
 
-Route::post('login', [LoginController::class,'store'])->name('auth.login');
+Route::get('/login', [App\Http\Controllers\LoginController::class,'index'])->name('login');
+Route::post('/login', [App\Http\Controllers\LoginController::class,'store']);
+Route::post('/logout',[App\Http\Controllers\LogoutController::class,'index'])->name('logout');
 
-Route::post('logout',[LogoutController::class,'index'])->name('logout');
 
 Route::middleware(['auth'])->group(function () {
 
