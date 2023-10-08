@@ -64,7 +64,7 @@
         @yield('content')
     </main>
 </body>
-<footer class="shadow m-4 mx-auto" style="background-color: #333333">
+<footer class="shadow mx-auto" style="background-color: #333333">
     <div class="w-full max-w-screen-xl mx-auto p-4 md:py-8">
         <div class="sm:flex sm:items-center sm:justify-between">
             <a href="{{ url('/') }}" class="flex items-center mb-4 sm:mb-0">
