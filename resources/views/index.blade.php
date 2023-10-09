@@ -151,7 +151,7 @@
             <div>
                 <input type="file" name="document">
                 @error('document')
-                    <p class="bg-red-400 font-semibold my-4 text-lg text-center text-red-800 px-4 py-3 rounded-lg">
+                    <p class="font-semibold my-4 text-lg text-center text-red-800 px-4 py-3 rounded-lg" style="background: #ff8a80">
                         {{ $message }}</p>
                 @enderror
             </div>
