@@ -25,7 +25,7 @@
 </head>
 
 <body class="min-h-screen">
-    <nav class="fixed-top" style="background-color: #333333">
+    <nav class="fixed-top z-30" style="background-color: #333333">
         <div class="mx-auto max-w-7xl px-2 sm:px-6 lg:px-8">
             <div class="relative flex h-16 items-center justify-between">
                 <div class="flex flex-1 items-center justify-center sm:items-stretch sm:justify-start">
@@ -34,19 +34,17 @@
                             <img src="{{ asset('img/TURJOY2.png') }}" alt="codeWaveLogo" height="100" width="125">
                         </a>
                     </div>
-                    <div class="hidden sm:ml-6 sm:block">
+                    <div class="hidden sm:ml-6 sm:block ">
                         <div class="flex space-x-4">
                             <a href="{{ url('/') }}"
                                 class="hover:bg-gray-700 text-white rounded-md px-3 py-2 text-sm font-medium"
                                 aria-current="page">Inicio</a>
-                            <a href="#"
-                                class="text-white hover:bg-gray-700 hover:text-white rounded-md px-3 py-2 text-sm font-medium">Proximamente</a>
-                            <a href="#"
-                                class="text-white hover:bg-gray-700 hover:text-white rounded-md px-3 py-2 text-sm font-medium">Próximamente</a>
                             @guest
                                 @if (Route::has('login'))
+                                    <a href="{{ route('reserveTickets') }}"
+                                        class="text-white hover:bg-gray-700 hover:text-white rounded-md px-3 py-2 text-sm font-medium">Reservar</a>
                                     <a class="nav-link text-white hover:bg-gray-700 hover:text-white rounded-md px-3 py-2 text-sm font-medium"
-                                        href="{{ route('login') }}">Iniciar sesión </a>
+                                        href="{{ route('login') }}">Iniciar sesión</a>
                                 @endif
                                 @if (Route::has('register'))
                                     <a class="nav-link text-white hover:bg-gray-700 hover:text-white rounded-md px-3 py-2 text-sm font-medium"
@@ -63,8 +61,8 @@
                                         type="button">
                                         <span class="absolute -inset-1.5"></span>
                                         <span class="sr-only">Open user menu</span>
-                                        <img class="h-8 w-8 rounded-full"
-                                            src="img/Italo-Donoso.jpg" alt="adminImage">
+                                        <img class="h-8 w-8 rounded-full" src="{{ asset('img/Italo-Donoso.jpg') }}"
+                                            alt="adminImage">
                                     </button>
 
                                     <!-- Dropdown menu -->
@@ -76,7 +74,8 @@
                                             </li>
                                             <li>
                                                 <a href="{{ route('travels.index') }}"
-                                                    class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Cargar rutas</a>
+                                                    class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Cargar
+                                                    rutas</a>
                                             </li>
                                             <li>
                                                 <a href="#"
@@ -86,7 +85,8 @@
                                                 <a href="{{ route('logout') }}"
                                                     class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
                                                     href="{{ route('logout') }}"
-                                                    onclick="event.preventDefault(); document.getElementById('logout-form').submit();"> Salir</a>
+                                                    onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
+                                                    Salir</a>
                                             </li>
                                         </ul>
                                     </div>
@@ -108,7 +108,6 @@
     <main class="flex-grow">
         @yield('content')
     </main>
-
     <footer class="shadow mx-auto fixed-bottom footer" style="background-color: #333333">
         <div class="w-full max-w-screen-xl mx-auto p-4 md:py-8">
             <div class="sm:flex sm:items-center sm:justify-between">
