@@ -61,7 +61,7 @@
                                         type="button">
                                         <span class="absolute -inset-1.5"></span>
                                         <span class="sr-only">Open user menu</span>
-                                        <img class="h-8 w-8 rounded-full" src="{{ asset('img/Italo-Donoso.jpg') }}"
+                                        <img class="h-8 w-8 rounded-full" src="{{ asset('img/iconoUser.jpg') }}"
                                             alt="adminImage">
                                     </button>
 
@@ -86,7 +86,7 @@
                                                     class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
                                                     href="{{ route('logout') }}"
                                                     onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
-                                                    Salir</a>
+                                                    Cerrar Sesión</a>
                                             </li>
                                         </ul>
                                     </div>
