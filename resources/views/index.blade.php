@@ -182,25 +182,6 @@
             @endif
             </div>
         </div>
-<<<<<<< HEAD
-        <form class="flex flex-col items-center w-1/2" action="{{ route('travel.check') }}" method="POST"
-            enctype="multipart/form-data">
-            @csrf
-            <div>
-                <input type="file" name="document">
-                @error('document')
-                    <p class="font-semibold my-4 text-lg text-center text-red-800 px-4 py-3 rounded-lg" style="background: #ff8a80">
-                        {{ $message }}</p>
-                @enderror
-            </div>
-
-            <button class="lg:w-1/4 my-4 p-2 bg-green-400 rounded-sm text-black font-semibold" type="submit">
-                Importar Viajes
-            </button>
-        </form>
-    </div>
-    @endif
-=======
         <div class="flex flex-1 justify-center items-center my-6">
             @if (session()-> has('lecturaError'))
                     <p class="my-4 text-lg text-center px-4 py-3" style="background-color: #ff8a80">
@@ -208,7 +189,6 @@
                     </p>
                 @endif
         </div>
->>>>>>> 1344912003c08a7dfcd20de5619ccd4b8bb13019
     <script src="../path/to/flowbite/dist/flowbite.min.js"></script>
     </body>
 @endsection

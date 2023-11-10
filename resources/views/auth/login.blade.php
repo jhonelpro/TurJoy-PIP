@@ -4,26 +4,6 @@
 @endsection
 @section('content')
 
-<<<<<<< HEAD
-<head>
-	<title>Inicio de Sesión</title>
-	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" integrity="sha384-gfdkjb5BdAXd+lj+gudLWI+BXq4IuLW5IT+brZEZsLFm++aCMlF1V92rMkPaX4PP" crossorigin="anonymous">
-    @vite(['resources/css/app.css','resources/js/app.js'])
-</head>
-<body>
-	<div class="container h-100">
-		<div class="d-flex justify-content-center h-100">
-			<div class="user_card">
-				<div class="d-flex justify-content-center">
-					<div class="brand_logo_container">
-						<img src="img/CodeWave2.png" class="brand_logo" alt="Logo-Codewave">
-					</div>
-				</div>
-				<div class="d-flex justify-content-center form_container">
-					<form action= "{{route('login')}}" method="POST">
-=======
     <head>
         <link href="https://cdnjs.cloudflare.com/ajax/libs/flowbite/1.8.1/flowbite.min.css" rel="stylesheet" />
         <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
@@ -40,8 +20,7 @@
                 <div class="mx-auto max-w-7xl px-6 lg:px-8">
                     <h2 class="mb-4 text-4xl tracking-tight font-extrabold">Inicio de Sesión</h2>
 
-                    <form class="mt-4" action= "{{ route('login') }}"method="post">
->>>>>>> 1344912003c08a7dfcd20de5619ccd4b8bb13019
+                    <form class="mt-4" action= "{{ route('login') }}" method="post">
                         @csrf
                         <div class="input-group mt-4">
                             <div class="input-group-append">
