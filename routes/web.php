@@ -2,8 +2,11 @@
 
 use App\Http\Controllers\TravelController;
 use App\Http\Controllers\UsuarioController;
+use App\Http\Controllers\VoucherController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\LogoutController;
+use App\Http\Controllers\TicketController;
+use App\Http\Controllers\SearchController;
 use App\Http\Controllers\ReserveController;
 use Illuminate\Support\Facades\Route;
 /*
@@ -25,7 +28,18 @@ Route::get('/', function () {
 Route::get('/login', [App\Http\Controllers\LoginController::class,'index'])->name('login');
 Route::post('/login', [App\Http\Controllers\LoginController::class,'store']);
 Route::post('/logout',[App\Http\Controllers\LogoutController::class,'index'])->name('logout');
-Route::get('/reserveTickets',[App\Http\Controllers\TicketsController::class,'index'])->name('reserveTickets');
+Route::get('/reserveTickets',[App\Http\Controllers\TravelController::class, 'homeIndex'])->name('reserveTickets');
+
+
+Route::get('/search2', [App\Http\Controllers\SearchController::class, 'index'])->name('search.index');
+Route::get('/search', [SearchController::class, 'store'])->name('search.store');
+
+Route::get('/get/origins', [TravelController::class, 'obtainOrigins']);
+Route::get('/get/destinations/{origin}', [TravelController::class, 'searchDestinations']);
+Route::get('/seating/{origin}/{destination}/{date}', [TravelController::class, 'seatings']);
+Route::post('/check', [TravelController::class, 'checkTravel'])->name('travels.check');
+Route::post('/reservation', [TicketController::class, 'store'])->name('add-reservation');
+
 
 Route::middleware(['auth'])->group(function () {
 
@@ -37,3 +51,6 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/searchReserve',[ReserveController::class,'check'])->name('searchCheck');
 
 });
+
+Route::get('/travel-reservation/{id}', [VoucherController::class, 'generatePDF'])->name('generate.pdf');
+Route::get('download-pdf/{id}', [VoucherController::class, 'downloadPDF'])->name('pdf.download');

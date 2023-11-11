@@ -1,5 +1,7 @@
 <?php
 
+use App\Models\Ticket;
+
 function makeMessages(){
 
     $messages = [
@@ -9,9 +11,33 @@ function makeMessages(){
         'document.required' => 'El campo archivo es requerido.',
         'document.mimes' => 'El archivo seleccionado no es Excel con extensión .xlsx.',
         'document.max' => 'El tamaño máximo del archivo a cargar no puede superar los 5 megabytes.',
-        'code.regex' => 'la reserva XXXXXX no existe en el sistema',
-        'code.between' => 'la reserva XXXXXX no existe en el sistema',
-        'code.required' => 'debe proporcionar un código de reserva'
+
+        'seat.required' => '- Debe seleccionar un asiento.',
+        'total.required' => '- Debe ingresar el total a pagar.',
+        'date.required' => '- Debe ingresar la fecha de viaje.',
+
+        'code.required' => 'Debe ingresar el código de reserva.',
     ];
     return $messages;
+}
+
+function generateReservationNumber(){
+    do{
+        $letters  = Str::random(4);
+        $numbers = mt_rand(10,99);
+        $code = $letters.$numbers;
+        $response = Ticket::where('code',$code)->first();
+    }while($response);
+
+    return $code;
+}
+
+function validDate ($date){
+    $currentDate = date('d-m-Y');
+    $dateForValidation = Carbon::parse($date);
+
+    if($dateForValidation->lessThan($currentDate)){
+        return true;
+    }
+    return false;
 }
