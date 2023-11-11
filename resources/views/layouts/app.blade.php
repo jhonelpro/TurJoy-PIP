@@ -39,6 +39,9 @@
                             <a href="{{ url('/') }}"
                                 class="hover:bg-gray-700 text-white rounded-md px-3 py-2 text-sm font-medium"
                                 aria-current="page">Inicio</a>
+                            <a href="{{route('search.index')}}"
+                                class="hover:bg-gray-700 text-white rounded-md px-3 py-2 text-sm font-medium"
+                                aria-current="page">Buscar Reserva</a>
                             @guest
                                 @if (Route::has('login'))
                                     <a href="{{ route('reserveTickets') }}"
