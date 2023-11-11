@@ -41,7 +41,7 @@
                                 aria-current="page">Inicio</a>
                             <a href="{{route('search.index')}}"
                                 class="hover:bg-gray-700 text-white rounded-md px-3 py-2 text-sm font-medium"
-                                aria-current="page">Buscar Reserva</a>
+                                aria-current="page">Buscar reserva</a>
                             @guest
                                 @if (Route::has('login'))
                                     <a href="{{ route('reserveTickets') }}"
@@ -81,8 +81,8 @@
                                                     rutas</a>
                                             </li>
                                             <li>
-                                                <a href="#"
-                                                    class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Proximamente</a>
+                                                <a
+                                                    class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Próximamente</a>
                                             </li>
                                             <li>
                                                 <a href="{{ route('logout') }}"

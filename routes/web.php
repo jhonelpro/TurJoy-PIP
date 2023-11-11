@@ -30,7 +30,7 @@ Route::post('/logout',[App\Http\Controllers\LogoutController::class,'index'])->n
 Route::get('/reserveTickets',[App\Http\Controllers\TravelController::class, 'homeIndex'])->name('reserveTickets');
 
 
-Route::get('/search2', [App\Http\Controllers\SearchController::class, 'index'])->name('search.index');
+Route::get('/search/Reserve', [App\Http\Controllers\SearchController::class, 'index'])->name('search.index');
 Route::get('/search', [SearchController::class, 'store'])->name('search.store');
 
 Route::get('/get/origins', [TravelController::class, 'obtainOrigins']);
@@ -46,7 +46,6 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/add/travel',[TravelController::class,'indexAddTravels'])->name('travels.index');
     Route::post('/addtravel',[TravelController::class,'travelCheck'])->name('travel.check');
     Route::get('/result/travels',[TravelController::class,'indexTravels'])->name('travelsAdd.index');
-
 });
 
 Route::get('/travel-reservation/{id}', [VoucherController::class, 'generatePDF'])->name('generate.pdf');
