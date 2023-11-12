@@ -9,7 +9,8 @@
         <p class="text-5xl text-gray-900 dark:text-white text-center p m-4">Buscar reserva</p>
     </div>
     <div class="flex justify-center">
-    <form class="mt-4" method="GET" action="{{route('search.store')}}">
+    <form class="mt-4" method="POST" action="{{route('search.store')}}">
+        @csrf
         <label for="default-search" class="mb-2 text-sm font-medium text-gray-900 sr-only dark:text-white">Buscar</label>
         <div class="relative">
             <div class="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
