@@ -31,7 +31,7 @@ Route::get('/reserveTickets',[App\Http\Controllers\TravelController::class, 'hom
 
 
 Route::get('/search/Reserve', [App\Http\Controllers\SearchController::class, 'index'])->name('search.index');
-Route::get('/search', [SearchController::class, 'store'])->name('search.store');
+Route::post('/search', [SearchController::class, 'store'])->name('search.store');
 
 Route::get('/get/origins', [TravelController::class, 'obtainOrigins']);
 Route::get('/get/destinations/{origin}', [TravelController::class, 'searchDestinations']);
