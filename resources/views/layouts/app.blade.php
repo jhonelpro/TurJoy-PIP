@@ -82,14 +82,14 @@
                                             </li>
                                             <li>
                                                 <a  href="{{ route('report') }}"
-                                                    class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Reporte de Reservas</a>
+                                                    class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Reporte de reservas</a>
                                             </li>
                                             <li>
                                                 <a href="{{ route('logout') }}"
                                                     class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
                                                     href="{{ route('logout') }}"
                                                     onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
-                                                    Cerrar Sesión</a>
+                                                    Cerrar sesión</a>
                                             </li>
                                         </ul>
                                     </div>
