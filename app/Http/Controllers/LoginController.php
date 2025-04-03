@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 use Illuminate\Http\Request;
+use App\Helper\myHelper;
 
 class LoginController extends Controller
 {
@@ -10,12 +11,7 @@ class LoginController extends Controller
     }
     public function store (Request $request){
         //Validar información recolectada
-        $mesagges = makeMessages();
-
-        $this->validate($request,[
-            'correo'=> ['required','email'],
-            'contrasena'=> ['required']
-        ],$mesagges);
+        
 
         if (!auth()->attempt(['email'=>$request->correo, 'password'=>$request->contrasena])){
 
