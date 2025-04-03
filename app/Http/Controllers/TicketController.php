@@ -10,12 +10,29 @@ use Illuminate\Http\Request;
 class TicketController extends Controller
 {
 
+    public function generateReservationNumber()
+    {
+        do{
+            $characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
+            $charactersLength = strlen($characters);
+            $letters = '';
+            for ($i=0   ; $i < 4; $i++) {
+                $letters .= $characters[rand(0, $charactersLength - 1)];
+            }
+            $numbers = mt_rand(10,99);
+            $code = $letters.$numbers;
+            $response = Ticket::where('code',$code)->first();
+        }while($response);
+
+        return $code;
+    }
+
 
     public function store(Request $request)
     {
         try{
             // Generar el numero de reserva
-            $code = generateReservationNumber();
+            $code = $this->generateReservationNumber();
 
             //Obtener el total base-rate del request
             $baseRateTotal = $request->input('base-rate');
