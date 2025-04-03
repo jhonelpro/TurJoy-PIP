@@ -21,5 +21,6 @@ class DatabaseSeeder extends Seeder
 
         $this->call(usuarioTableSeeder::class);
 
+        $this->call(travelTableSeeder::class);
     }
 }

@@ -6,7 +6,7 @@ use App\Models\Travel;
 use Illuminate\Support\Collection;
 use Maatwebsite\Excel\Concerns\ToCollection;
 use Maatwebsite\Excel\Concerns\WithHeadingRow;
-use Session;
+use Illuminate\Support\Facades\Session;
 class TravelsImport implements ToCollection, WithHeadingRow
 {
 

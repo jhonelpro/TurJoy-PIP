@@ -7,6 +7,7 @@ use Illuminate\Database\Seeder;
 use App\Models\User;
 use Carbon\Carbon;
 use Database\Factories\UserFactory;
+use Illuminate\Support\Str;
 
 class usuarioTableSeeder extends Seeder
 {
@@ -28,6 +29,7 @@ class usuarioTableSeeder extends Seeder
             'email'=>'jhon.vallecilla@ucn.cl',
             'password'=> bcrypt('Jhon1234'),
             'email_verified_at' => Carbon::now(),
+            'remember_token' => Str::random(10),
             'userType' => 0,
         ]);
 
