@@ -9,8 +9,16 @@ class LoginController extends Controller
     public function index(){
         return view('auth.login');
     }
+
     public function store (Request $request){
+        
         //Validar información recolectada
+        $mesagges = myHelper::makeMessages();
+ 
+         $this->validate($request,[
+             'correo'=> ['required','email'],
+             'contrasena'=> ['required']
+         ],$mesagges);
         
 
         if (!auth()->attempt(['email'=>$request->correo, 'password'=>$request->contrasena])){

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Helper\myHelper;
 use Illuminate\Http\Request;
 use App\Models\Ticket;
 use App\Models\Travel;
@@ -21,7 +22,7 @@ class ReportController extends Controller
 
     public function searchToDate(Request $request)
     {
-        $messages = makeMessages();
+        $messages = myHelper::makeMessages();
         $this->validate($request, [
             'date1' => ['required','date'],
             'date2' => ['required','date'],

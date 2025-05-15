@@ -1,6 +1,8 @@
 <?php
 
 namespace App\Http\Controllers;
+
+use App\Helper\myHelper;
 use App\Models\Ticket;
 use App\Models\Travel;
 use App\Http\Controllers\Controller;
@@ -42,7 +44,7 @@ class TravelController extends Controller
 
     public function travelCheck(Request $request){
 
-        $mesagges = makeMessages();
+        $mesagges = myHelper::makeMessages();
 
         $this->validate($request,['document'=> ['required','mimes:xlsx','max:5120']],$mesagges);
 
