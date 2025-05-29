@@ -9,7 +9,8 @@ import 'bootstrap';
 import axios from 'axios';
 window.axios = axios;
 
-window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
+// Este archivo lee la cookie 'XSRF-TOKEN' y la manda como header
+window.axios.defaults.headers.common['X-XSRF-TOKEN'] = getCookie('XSRF-TOKEN');
 
 /**
  * Echo exposes an expressive API for subscribing to channels and listening
